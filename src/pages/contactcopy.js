@@ -6,18 +6,15 @@ import Button from '../components/parts/Button'
 import { notEmpty, validateEmail } from '../services/Validate'
 import { showMessage } from '../services/Alerts'
 import '../styles/contact.css'
-import Form from '../components/Form'
-import FormSuccess from '../components/FormSuccess'
 
-
-function Contact(props) {
+function Contact() {
   const [name, SetName] = useState('')
   const [email, SetEmail] = useState('')
   const [txtArea, SetTxtArea] = useState('')
-  const [isSuccess, SetIsSucess] = useState(false)
+  const [articles, SetArticles] = useState([])
+  const [isSuccess, SetisSucess] = useState(false)
 
-  let newMessage = {}
-  
+  let date = new Date()
   
   const saveName = (e) => {
       SetName(e.target.value)
@@ -35,15 +32,17 @@ function Contact(props) {
   const saveArticle = () => {
     if(!notEmpty(name) && !notEmpty(txtArea)) {
       if(!notEmpty(email) && validateEmail(email)) {
-          newMessage = {
+        let newArticle = {
           name: name, 
           email: email,
-          question: txtArea
+          question: txtArea,
+          dateCreated: date.toDateString(),
+          timeCreated: date.toTimeString()
         }
+        SetArticles([...articles, newArticle])
 
         showMessage('Note successfully created.','success','center',2000)
 
-        SetIsSucess(true)
 
       } else {
         showMessage('Email not valid.', 'error','center', 2000)
@@ -58,28 +57,38 @@ function Contact(props) {
   }
   
   
-  
+  // console.log(articles);
 
   return (
-    <>
-  
-    {!isSuccess && 
-    (<Form
-          saveName={saveName}
-          saveEmail={saveEmail}
-          saveTxt={saveTxt}
-          saveArticle={saveArticle}
-   />)}
-
-    {isSuccess && (
-    <FormSuccess
-          name={name}
-          email={email}
-          txtArea={txtArea}
+    <Layout>
+     <h1>Contact</h1>
+     <div className='form'>
+   <Input 
+          fieldType='text'
+          fieldPlaceholder = 'Enter Name'
+          fieldOnChange = {(e) => {saveName(e)}}
+   /> 
+   
+   <Input 
+          fieldType='email'
+          fieldPlaceholder = 'Enter Email'
+          fieldOnChange = {(e) => {saveEmail(e)}}
+   /> 
+   <TextArea 
+    txtPlaceholder='Your Question?'
+    txtRows = '4'
+    txtCols = '30'
+    txtOnChange = {(e) => {saveTxt(e)}}
+   />
+    
+    <Button
+    buttonOnSubmit = {saveArticle}
+    buttonTitle = 'Submit'
     />
-      
-    )}
-   </>
+    </div>
+
+
+   </Layout>
   )
 }
 

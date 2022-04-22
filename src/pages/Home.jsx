@@ -1,5 +1,6 @@
 import { isEditable } from '@testing-library/user-event/dist/utils'
 import React, { useState } from 'react'
+import Article from '../components/Article'
 import Layout from '../components/layout/Layout'
 import Button from '../components/parts/Button'
 import Input from '../components/parts/Input'
@@ -22,28 +23,32 @@ function Home() {
   const saveArticle = () => {
     if(!notEmpty(title) && !notEmpty(content)) {
       let newArticle = {
+        id: articles.length + 1, 
         title: title,
         content: content,
-        date: date.toDateString(),
-        time: date.toTimeString()
+        date: date.toLocaleString().slice(0, -3)
       }
       SetArticles([...articles, newArticle])
     }
   }
 
+    console.log(articles);
 
 
   return (
    <Layout>
       <h1>Home</h1>
       {articles.length === 0 && 
-      <p>No articles</p>}
+      <p className='no-articles'>No articles</p>}
     {articles.length > 0 && 
     <>
     
-     <div className='articles'>
-      <p>artikli</p>
-
+     <div className='article-container'>
+     {articles.map((article, index) => 
+     <Article
+      key={article.id}
+      article={article}
+     />)}
      </div>
      </>
     }

@@ -12,3 +12,61 @@
     left: 0;
     right: 0;
 }
+
+.article-container {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.article {
+    position: relative;
+    border: 1px solid black;
+    width: 12em;
+    height: 6em;
+    padding: .5em;
+    margin: .3em;
+    background-color: lightblue;
+    color: #5271FF;
+}
+
+.no-articles {
+    margin: 2em auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.title {
+    text-align:center;
+    margin: 1.5em auto;
+    
+}
+
+.date {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+.btn-delete, .btn-edit {
+    width: 24px;
+    height: 30px;
+    font-size: 24px;
+    color: #5271FF;
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.btn-edit {
+    position: absolute;
+    top: 0;
+    right: 35px;
+}

@@ -1,4 +1,3 @@
-import { isEditable } from '@testing-library/user-event/dist/utils'
 import React, { useState } from 'react'
 import Article from '../components/Article'
 import Layout from '../components/layout/Layout'
@@ -28,7 +27,7 @@ function Home() {
         content: content,
         date: date.toLocaleString().slice(0, -3)
       }
-      SetArticles([...articles, newArticle])
+      SetArticles(prev => [...prev, newArticle])
     }
   }
 

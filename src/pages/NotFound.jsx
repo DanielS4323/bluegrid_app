@@ -1,10 +1,17 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
+import oops from '../assets/images/oops.png'
+import fourOfour from '../assets/images/404.png'
+import '../styles/not-found.css'
 
 function NotFound() {
   return (
    <Layout>
-      <h1>Oops page not found</h1>
+      <div className='wrap'>
+        <img alt='error' className='img-four' src={fourOfour}/>
+        <img alt='character' className='img-char' src={oops}/>
+      </div>
+      
    </Layout>
   )
 }

@@ -5,7 +5,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+    body {
+        background-color: #E8D1A2;
+    }
 .about {
     text-align: justify;
     width: 60%;

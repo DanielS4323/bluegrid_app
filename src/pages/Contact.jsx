@@ -41,7 +41,7 @@ function Contact(props) {
           question: txtArea
         }
 
-        showMessage('Note successfully created.','success','center',2000)
+        showMessage('Form successfully sent.','success','center',2000)
 
         SetIsSucess(true)
 

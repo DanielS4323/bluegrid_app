@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Article from '../components/Article'
+import CreateArticle from '../components/CreateArticle'
 import Layout from '../components/layout/Layout'
 import Button from '../components/parts/Button'
 import Input from '../components/parts/Input'
@@ -10,29 +11,14 @@ function Home() {
   const [articles, SetArticles] = useState([])
   const [title, SetTitle] = useState('')
   const [content, SetContent] = useState('')
-  let date = new Date()
 
-  const saveTitle = (e) => {
-      SetTitle(e.target.value)
-  } 
-  const saveContent = (e) => {
-      SetContent(e.target.value)
-  } 
+  const [editTitle, SetEditTitle] = useState('')
+  const [editContent, SetEditContent] = useState('')
+  const [edit, SetEdit] = useState(false)
+  
 
-  const saveArticle = () => {
-    if(!notEmpty(title) && !notEmpty(content)) {
-      let newArticle = {
-        id: articles.length + 1, 
-        title: title,
-        content: content,
-        date: date.toLocaleString().slice(0, -3)
-      }
-      SetArticles(prev => [...prev, newArticle])
-    }
-  }
 
-    console.log(articles);
-
+  
 
   return (
    <Layout>
@@ -47,12 +33,25 @@ function Home() {
      <Article
       key={article.id}
       article={article}
+      SetArticles={SetArticles}
+      SetEditTitle={SetEditTitle}
+      SetEditContent={SetEditContent}
+      SetEdit={SetEdit}
      />)}
      </div>
      </>
     }
 
-     <div className='create-article'>
+    <CreateArticle 
+      title={title}
+      content={content}
+      SetTitle={SetTitle}
+      SetContent={SetContent}
+      articles={articles}
+      SetArticles={SetArticles}
+    />
+
+     {/* <div className='create-article'>
             <Input 
             fieldType='text'
             fieldValue={title}
@@ -69,7 +68,7 @@ function Home() {
             <Button 
             buttonOnSubmit = {saveArticle}
             buttonTitle = 'Submit'/>
-     </div>
+     </div> */}
    </Layout>
   )
 }

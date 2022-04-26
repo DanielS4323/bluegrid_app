@@ -8,15 +8,14 @@ import { showMessage } from '../services/Alerts'
 import '../styles/contact.css'
 import Form from '../components/Form'
 import FormSuccess from '../components/FormSuccess'
+import { TitleName } from '../services/Hooks'
 
 
 function Contact(props) {
   const [name, SetName] = useState('')
   const [email, SetEmail] = useState('')
   const [txtArea, SetTxtArea] = useState('')
-  const [isSuccess, SetIsSucess] = useState(false)
 
-  let newMessage = {}
   
   
   const saveName = (e) => {
@@ -35,15 +34,16 @@ function Contact(props) {
   const saveArticle = () => {
     if(!notEmpty(name) && !notEmpty(txtArea)) {
       if(!notEmpty(email) && validateEmail(email)) {
-          newMessage = {
+         let newMessage = {
           name: name, 
           email: email,
           question: txtArea
         }
+        props.SetContact(newMessage)
 
         showMessage('Form successfully sent.','success','center',2000)
 
-        SetIsSucess(true)
+        props.SetIsSucess(true)
 
       } else {
         showMessage('Email not valid.', 'error','center', 2000)
@@ -58,12 +58,12 @@ function Contact(props) {
   }
   
   
-  
+    TitleName('Contact')
 
   return (
     <>
   
-    {!isSuccess && 
+    {!props.isSuccess && 
     (<Form
           saveName={saveName}
           saveEmail={saveEmail}
@@ -71,11 +71,11 @@ function Contact(props) {
           saveArticle={saveArticle}
    />)}
 
-    {isSuccess && (
+    {props.isSuccess && (
     <FormSuccess
-          name={name}
-          email={email}
-          txtArea={txtArea}
+          name={props.contact.name}
+          email={props.contact.email}
+          txtArea={props.contact.question}
     />
       
     )}

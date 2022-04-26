@@ -22,7 +22,12 @@ function CreateArticle(props) {
     />
    
     <Button 
-    buttonOnSubmit = {() => saveArticle(props.title, props.content,props.articles, props.SetArticles)}
+    buttonOnSubmit = {() => saveArticle(props.title,
+                                       props.content,
+                                       props.articles, 
+                                       props.SetArticles, 
+                                       props.SetTitle, 
+                                       props.SetContent)}
     buttonTitle = 'Submit'/>
 </div>
   )

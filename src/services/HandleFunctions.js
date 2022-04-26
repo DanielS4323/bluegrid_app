@@ -1,7 +1,7 @@
 import { notEmpty } from "./Validate"
 import {promptMessage} from './Alerts'
 
-let date = new Date()
+
 
 
 export const handleDelete = (object, SetState) => {
@@ -21,7 +21,8 @@ export const saveContent = (e, SetContent) => {
     SetContent(e.target.value)
 } 
 
-export const saveArticle = (title, content,articles, SetArticles) => {
+export const saveArticle = (title, content,articles, SetArticles, SetContent, SetTitle) => {
+  let date = new Date()
   if(!notEmpty(title) && !notEmpty(content)) {
     let newArticle = {
       id: articles.length + 1, 
@@ -30,5 +31,9 @@ export const saveArticle = (title, content,articles, SetArticles) => {
       date: date.toLocaleString().slice(0, -3)
     }
     SetArticles(prev => [...prev, newArticle])
-  }
+
+    SetTitle('')
+    SetContent('')
+
+  } 
 }

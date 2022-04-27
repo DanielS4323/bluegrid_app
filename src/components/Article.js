@@ -8,11 +8,8 @@ function Article(props) {
 
 
   const handleEdit = () => {
-   props.SetArticles(prev => {
-     let copy = [...prev]
-     let foundArticle = copy.find((art) => art.id === props.article.id)
-     console.log(foundArticle);
-   })
+    props.SetEditArticle(props.article)
+    props.SetEditId(props.article.id)
     props.SetEdit(true)
   }
   

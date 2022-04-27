@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '../components/layout/Layout'
 import oops from '../assets/images/oops.png'
 import fourOfour from '../assets/images/404.png'
@@ -9,7 +9,9 @@ function NotFound() {
 
   TitleName('404 Page not found')
 
+
   return (
+  
    <Layout>
       <div className='wrap'>
         <img alt='error' className='img-four' src={fourOfour}/>

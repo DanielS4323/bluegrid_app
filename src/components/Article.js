@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Button from './parts/Button'
 import { handleDelete } from '../services/HandleFunctions'
 import {promptMessage} from '../services/Alerts'
@@ -16,8 +17,12 @@ function Article(props) {
 
 
   return (
-    <div className='article'>
-        <p className='title'>{props.article.title}</p>
+    
+    <div  className='article'>
+        <Link to={`/details/${props.article.id}`}
+         className='title'>
+           <p className='title'>{props.article.title}</p>
+         </Link>
         <p className='date'>{props.article.date}</p>
         <Button
         btnClass = 'btn-delete'
@@ -40,6 +45,7 @@ function Article(props) {
         buttonOnSubmit = {handleEdit}
         />
     </div>
+    
   )
 }
 

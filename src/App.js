@@ -1,9 +1,11 @@
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
-import { useState, createContext } from 'react';
+import { useState} from 'react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Details from './pages/Details';
+
 
 function App() {
 
@@ -12,35 +14,44 @@ function App() {
   const [isSuccess, SetIsSucess] = useState(false)
 
 
-
   return (
+    
     <Router>
-    
     <Routes>
+
       <Route
-       element={
-       <Home
-       articles={articles}
-       SetArticles={SetArticles}/>}
-       path='/' exact 
-       />
+                  element={
+            <Home
+                  articles={articles}
+                  SetArticles={SetArticles}/>}
+                  path='/' exact 
+            />
+           
+
       <Route 
-      element={<About/>} 
-      path='/about' exact />
+                  element={<About/>} 
+                  path='/about' exact />
       <Route 
-       element={
-       <Contact 
-       contact={contact}
-       SetContact={SetContact}
-       isSuccess={isSuccess}
-       SetIsSucess={SetIsSucess}
-       />}
-       path='/contact' exact/>
+                  element={
+          <Contact 
+                  contact={contact}
+                  SetContact={SetContact}
+                  isSuccess={isSuccess}
+                  SetIsSucess={SetIsSucess}/>}
+                  path='/contact' exact
+          />
+
       <Route 
-      element={<NotFound/>} 
-      path='*'/>
+                  element={<NotFound/>} 
+                  path='*'
+          />
+           <Route
+            element={<Details
+                      articles={articles}/>}
+            path='/details/:id' exact
+            />
+
     </Routes>
-    
   </Router>
   );
 }

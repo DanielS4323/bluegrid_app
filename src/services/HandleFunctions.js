@@ -1,5 +1,7 @@
-import { notEmpty } from "./Validate"
-import {promptMessage} from './Alerts'
+import { notEmpty, validateEmail } from "./Validate"
+import {showMessage} from './Alerts'
+import { useNavigate } from "react-router-dom"
+
 
 
 
@@ -14,12 +16,10 @@ export const handleDelete = (object, SetState) => {
 }
 
 
-export const saveTitle = (e, SetTitle) => {
+export const saveInput = (e, SetTitle) => {
     SetTitle(e.target.value)
 } 
-export const saveContent = (e, SetContent) => {
-    SetContent(e.target.value)
-} 
+
 
 export const saveArticle = (title, content,articles, SetArticles, SetContent, SetTitle) => {
   let date = new Date()
@@ -56,3 +56,28 @@ export const editArticle = (title, content,id, SetArticles, articles,SetEdit) =>
     SetEdit((prev)=> !prev)
 
 }
+
+
+export 
+const saveContactForm = (name, txtArea, email, SetContact, SetIsSuccess) => {
+  if(!notEmpty(name) && !notEmpty(txtArea)) {
+    if(!notEmpty(email) && validateEmail(email)) {
+       let newMessage = {
+        name: name, 
+        email: email,
+        question: txtArea
+      }
+        SetContact(newMessage)
+
+      showMessage('Form successfully sent.','success','center',2000)
+
+      SetIsSuccess(true)
+
+    } else {
+      showMessage('Email not valid.', 'error','center', 2000)
+    }
+
+  } else {
+    showMessage("Name or question area are empty.", "error", "center", 2000);
+  }}
+

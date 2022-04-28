@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Button from './parts/Button'
-import { handleDelete } from '../services/HandleFunctions'
 import {promptMessage} from '../services/Alerts'
 
 
@@ -19,7 +18,7 @@ function Article(props) {
   return (
     
     <div  className='article'>
-        <Link to={`/details/${props.article.id}`}
+        <Link to={`/details/${props.article.id}/${props.article.title}`}
          className='title'>
            <p className='title'>{props.article.title}</p>
          </Link>
@@ -34,6 +33,7 @@ function Article(props) {
             'warning',
              props.article,
              props.SetArticles,
+             props.SetEdit,
             'Deleted!',
             'Your file has been deleted.',
             'success')

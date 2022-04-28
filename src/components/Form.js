@@ -3,32 +3,42 @@ import Layout from './layout/Layout'
 import Input from './parts/Input'
 import TextArea from './parts/TextArea'
 import Button from './parts/Button'
+import { saveInput } from '../services/HandleFunctions'
+import { saveContactForm } from '../services/HandleFunctions'
 
 function Form(props) {
+
+  
+
+
   return (
-    <Layout>
-     <h1>Contact</h1>
+    <Layout title='Contact'>
+     
      <div className='form'>
    <Input 
-          fieldType='text'
-          fieldPlaceholder = 'Enter Name'
-          fieldOnChange = {(e) => {props.saveName(e)}}
+        fieldType='text'
+        fieldPlaceholder = 'Enter Name'
+        fieldOnChange = {(e) => saveInput(e, props.SetName)}
    /> 
    
    <Input 
-          fieldType='email'
-          fieldPlaceholder = 'Enter Email'
-          fieldOnChange = {(e) => {props.saveEmail(e)}}
+        fieldType='email'
+        fieldPlaceholder = 'Enter Email'
+        fieldOnChange = {(e) => saveInput(e, props.SetEmail)}
    /> 
    <TextArea 
     txtPlaceholder='Your Question?'
     txtRows = '4'
     txtCols = '30'
-    txtOnChange = {(e) => {props.saveTxt(e)}}
+    txtOnChange = {(e) => saveInput(e, props.SetTxtArea)}
    />
     
     <Button
-    buttonOnSubmit = {props.saveArticle}
+    buttonOnSubmit = {() => saveContactForm(props.name,
+                                            props.txtArea,
+                                            props.email,
+                                            props.SetContact,
+                                            props.SetIsSuccess)}
     buttonTitle = 'Submit'
     />
     </div>

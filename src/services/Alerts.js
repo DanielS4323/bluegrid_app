@@ -11,7 +11,7 @@ export const showMessage = (message, icon, position, timer) => {
       })
 }
 
-export const promptMessage = (title, text, icon, par1, par2,  titleConfirm, textConfirm, iconConfirm) => {
+export const promptMessage = (title, text, icon, par1, par2,SetEdit, titleConfirm, textConfirm, iconConfirm) => {
   Swal.fire({
     title: title,
     text: text,
@@ -22,8 +22,9 @@ export const promptMessage = (title, text, icon, par1, par2,  titleConfirm, text
     confirmButtonText: 'Yes!'
   }).then((result) => {
     if (result.isConfirmed) {
+      SetEdit(false)
      handleDelete(par1,par2)
-
+      
       Swal.fire(
         titleConfirm,
         textConfirm,

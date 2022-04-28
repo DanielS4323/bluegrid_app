@@ -6,6 +6,7 @@ function Layout(props) {
   return (
       <>
         <Header/>
+            <h1>{props.title}</h1>
             {props.children}
         <Footer/>
       </>

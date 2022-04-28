@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Input from './parts/Input'
 import Button from './parts/Button'
-import {saveTitle, saveContent, editArticle} from '../services/HandleFunctions'
+import {saveInput, editArticle} from '../services/HandleFunctions'
 
 
 function EditArticle(props) {
@@ -18,7 +18,9 @@ function EditArticle(props) {
 
 
     
-
+    const cancelEdit = () => {
+      props.SetEdit((prev) => !prev)
+    }
     
 
     
@@ -30,13 +32,13 @@ function EditArticle(props) {
     fieldType='text'
     fieldValue={title}
     fieldPlaceholder = 'Enter Title'
-    fieldOnChange = {(e)=> saveTitle(e, SetTitle)}
+    fieldOnChange = {(e)=> saveInput(e, SetTitle)}
     />
     <Input 
     fieldType='text'
     fieldValue={content}
     fieldPlaceholder = 'Enter Content'
-    fieldOnChange = {(e) => saveContent(e, SetContent)}
+    fieldOnChange = {(e) => saveInput(e, SetContent)}
     />
    
     <Button 
@@ -48,6 +50,11 @@ function EditArticle(props) {
                                         props.SetEdit
                                         )}
     buttonTitle = 'Edit'/>
+
+    <Button
+      buttonTitle = 'Cancel'
+      buttonOnSubmit= {() => cancelEdit()}
+    />
 
 
    </div>

@@ -1,26 +1,17 @@
 import React from 'react'
-import logo from "../assets/images/logo.png"
 import "../styles/header.css"
-import {  NavLink, useNavigate } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
+import Logo from './parts/Logo'
 
 function Header() {
 
-  const navigation = useNavigate();
-  
-  const onImgClick = () => {
-    navigation('/')
-  }
+
 
   return (
    <>
    <nav
       className='navigation'>
-        <img
-          onClick={onImgClick}
-          alt='logo'
-          className='logo'
-          src={logo}
-          />
+          <Logo/>
             <ul
           className='pages'
           >

@@ -21,11 +21,10 @@ function Home(props) {
     
 
   return (
-   <Layout>
-      <h1>Home</h1>
+   <Layout title='Home'>
       {props.articles.length === 0 && 
       <p className='no-articles'>No articles</p>}
-    {props.articles.length > 0 && 
+    
     <>
     
      <div className='article-container'>
@@ -40,7 +39,7 @@ function Home(props) {
      />)}
      </div>
      </>
-    }
+    
 
     {!edit && 
     <CreateArticle 

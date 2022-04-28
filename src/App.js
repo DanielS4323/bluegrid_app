@@ -11,7 +11,7 @@ function App() {
 
   const [articles, SetArticles] = useState([])
   const [contact, SetContact] = useState({})
-  const [isSuccess, SetIsSucess] = useState(false)
+  const [isSuccess, SetIsSuccess] = useState(false)
 
 
   return (
@@ -37,7 +37,7 @@ function App() {
                   contact={contact}
                   SetContact={SetContact}
                   isSuccess={isSuccess}
-                  SetIsSucess={SetIsSucess}/>}
+                  SetIsSuccess={SetIsSuccess}/>}
                   path='/contact' exact
           />
 
@@ -48,7 +48,7 @@ function App() {
            <Route
             element={<Details
                       articles={articles}/>}
-            path='/details/:id' exact
+            path='/details/:id/:articleTitle' exact
             />
 
     </Routes>

@@ -12,38 +12,28 @@ function Article(props) {
     props.SetEditId(props.article.id)
     props.SetEdit(true)
   }
-  
-
-
   return (
     
-    <div  className='article'>
-        <Link to={`/details/${props.article.id}/${props.article.title}`}
-         className='title'>
-           <p className='title'>{props.article.title}</p>
-         </Link>
-        <p className='date'>{props.article.date}</p>
-        <Button
-        btnClass = 'btn-delete'
-        buttonTitle = '&#x2715;'
-        buttonOnSubmit = {() => 
-          promptMessage(
-            'Are you sure?',
-            'You won`t be able to revert this!',
-            'warning',
-             props.article,
-             props.SetArticles,
-             props.SetEdit,
-            'Deleted!',
-            'Your file has been deleted.',
-            'success')
-        }
-        />
-        <Button
-        btnClass = 'btn-edit'
-        buttonTitle = '&#x270E;'
-        buttonOnSubmit = {handleEdit}
-        />
+    <div className='article'>
+                <Link to={`/details/${props.article.id}/${props.article.title}`}
+                          className='title'>
+                        <p className='title'>{props.article.title}</p>
+                </Link>
+            <p className='date'>{props.article.date}</p>
+                <Button
+                        btnClass = 'btn-delete'
+                        buttonTitle = '&#x2715;'
+                        buttonOnSubmit = {() => promptMessage(
+                                                props.article,
+                                                props.SetArticles,
+                                                props.SetEdit
+                                                              )
+                                                              }/>
+                <Button
+                        btnClass = 'btn-edit'
+                        buttonTitle = '&#x270E;'
+                        buttonOnSubmit = {handleEdit}
+                                                              />
     </div>
     
   )

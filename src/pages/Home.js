@@ -23,44 +23,45 @@ function Home(props) {
   return (
    <Layout title='Home'>
       {props.articles.length === 0 && 
-      <p className='no-articles'>No articles</p>}
+      <p className='no-articles'>No articles</p>
+      }
     
     <>
     
      <div className='article-container'>
      {props.articles.map((article) => 
-     <Article
-      key={article.id}
-      article={article}
-      SetArticles={props.SetArticles}
-      SetEdit={SetEdit}
-      SetEditArticle={SetEditArticle}
-      SetEditId={SetEditId}
-     />)}
+    <Article
+              key={article.id}
+              article={article}
+              SetArticles={props.SetArticles}
+              SetEdit={SetEdit}
+              SetEditArticle={SetEditArticle}
+              SetEditId={SetEditId}
+      />)}
      </div>
      </>
     
 
     {!edit && 
     <CreateArticle 
-    title={title}
-    content={content}
-    SetTitle={SetTitle}
-    SetContent={SetContent}
-    articles={props.articles}
-    SetArticles={props.SetArticles}
-  />}
+              title={title}
+              content={content}
+              SetTitle={SetTitle}
+              SetContent={SetContent}
+              articles={props.articles}
+              SetArticles={props.SetArticles}
+    />}
     {edit && 
     <EditArticle 
-    articles={props.articles}
-    SetArticles={props.SetArticles}
-    editArticle={editArticle}
-    title={title}
-    content={content}
-    SetTitle={SetTitle}
-    SetContent={SetContent}
-    editId={editId}
-    SetEdit={SetEdit}
+              articles={props.articles}
+              SetArticles={props.SetArticles}
+              editArticle={editArticle}
+              title={title}
+              content={content}
+              SetTitle={SetTitle}
+              SetContent={SetContent}
+              editId={editId}
+              SetEdit={SetEdit}
     />
     }
    </Layout>

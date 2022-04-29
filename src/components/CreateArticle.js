@@ -1,7 +1,7 @@
 import React from 'react'
 import Input from './parts/Input'
 import Button from './parts/Button'
-import {saveInput, saveContent, saveArticle} from '../services/HandleFunctions'
+import {saveInput, saveArticle} from '../services/HandleFunctions'
 
 
 
@@ -20,14 +20,13 @@ function CreateArticle(props) {
     fieldPlaceholder = 'Enter Content'
     fieldOnChange = {(e) => saveInput(e, props.SetContent)}
     />
-   
     <Button 
     buttonOnSubmit = {() => saveArticle(props.title,
-                                       props.content,
-                                       props.articles, 
-                                       props.SetArticles, 
-                                       props.SetTitle, 
-                                       props.SetContent)}
+                                        props.content,
+                                        props.articles, 
+                                        props.SetArticles, 
+                                        props.SetTitle, 
+                                        props.SetContent)}
     buttonTitle = 'Submit'/>
 </div>
   )

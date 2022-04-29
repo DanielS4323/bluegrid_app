@@ -14,21 +14,22 @@ function Details(props) {
     
   return (
       <>
-            <h1>Details</h1>
-{detailedArticle && 
+        <h1>Details</h1>
 
-            <div className='article-details'>
-                    <p>ID: {detailedArticle.id}</p>
-                    <p>Title: {detailedArticle.title}</p>
-                    <p>Content: {detailedArticle.content}</p>
-                    <p>Date Created: {detailedArticle.date}</p>
-            <Button
-                    btnClass = 'btn'
-                    buttonTitle = 'Home'
-                    buttonOnSubmit = {() => navigate('/')}
-                />
-            </div> }
-            <Footer/>
+            {detailedArticle && 
+            
+                    <div className='article-details'>
+                            <p>ID: {detailedArticle.id}</p>
+                            <p>Title: {detailedArticle.title}</p>
+                            <p>Content: {detailedArticle.content}</p>
+                            <p>Date Created: {detailedArticle.date}</p>
+                        <Button
+                             btnClass = 'btn'
+                             buttonTitle = 'Home'
+                             buttonOnSubmit = {() => navigate('/')}
+                        />
+                    </div> }
+                        <Footer/>
       </>
   )
 }

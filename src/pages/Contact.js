@@ -15,29 +15,29 @@ function Contact(props) {
 
   
   
-    TitleName('Contact')
+  TitleName('Contact')
 
   return (
     <>
   
-    {!props.isSuccess && 
+    {!props.formIsSuccess && 
     (<Form
           name={name}
           email={email}
           txtArea={txtArea}
           SetContact = {props.SetContact}
-          SetIsSuccess = {props.SetIsSuccess}
+          SetFormIsSuccess = {props.SetFormIsSuccess}
           SetName={SetName}
           SetEmail={SetEmail}
           SetTxtArea={SetTxtArea}
 
-   />)}
+    />)}
 
-    {props.isSuccess && 
+    {props.formIsSuccess && 
     (<FormSuccess
-                name={props.contact.name}
-                email={props.contact.email}
-                txtArea={props.contact.question}
+          name={props.contact.name}
+          email={props.contact.email}
+          txtArea={props.contact.question}
       />
       
     )}

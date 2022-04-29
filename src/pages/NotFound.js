@@ -17,7 +17,6 @@ function NotFound() {
         <img alt='error' className='img-four' src={fourOfour}/>
         <img alt='character' className='img-char' src={oops}/>
       </div>
-      
    </Layout>
   )
 }

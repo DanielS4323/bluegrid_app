@@ -5,7 +5,7 @@ import TextArea from './parts/TextArea'
 
 function FormSuccess(props) {
   return (
-    <Layout>
+        <Layout title='Contact'>
             <div className='success'>
                   <Input
                     fieldType='text'

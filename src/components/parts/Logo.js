@@ -11,7 +11,7 @@ function Logo() {
           alt='logo'
           className='logo'
           src={logo}
-          />
+      />
   )
 }
 

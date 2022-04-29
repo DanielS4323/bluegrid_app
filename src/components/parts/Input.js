@@ -9,7 +9,7 @@ function Input(props) {
           value={props.fieldValue} 
           placeholder={props.fieldPlaceholder} 
           onChange={props.fieldOnChange}
-    />
+        />
   )
 }
 

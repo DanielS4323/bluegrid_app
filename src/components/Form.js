@@ -13,37 +13,34 @@ function Form(props) {
 
   return (
     <Layout title='Contact'>
-     
-     <div className='form'>
-   <Input 
-        fieldType='text'
-        fieldPlaceholder = 'Enter Name'
-        fieldOnChange = {(e) => saveInput(e, props.SetName)}
-   /> 
-   
-   <Input 
-        fieldType='email'
-        fieldPlaceholder = 'Enter Email'
-        fieldOnChange = {(e) => saveInput(e, props.SetEmail)}
-   /> 
-   <TextArea 
-    txtPlaceholder='Your Question?'
-    txtRows = '4'
-    txtCols = '30'
-    txtOnChange = {(e) => saveInput(e, props.SetTxtArea)}
-   />
-    
-    <Button
-    buttonOnSubmit = {() => saveContactForm(props.name,
-                                            props.txtArea,
-                                            props.email,
-                                            props.SetContact,
-                                            props.SetIsSuccess)}
-    buttonTitle = 'Submit'
-    />
-    </div>
+      <div className='form'>
+        <Input 
+             fieldType='text'
+             fieldPlaceholder = 'Enter Name'
+             fieldOnChange = {(e) => saveInput(e, props.SetName)}
+        /> 
 
+        <Input 
+             fieldType='email'
+             fieldPlaceholder = 'Enter Email'
+             fieldOnChange = {(e) => saveInput(e, props.SetEmail)}
+        /> 
+        <TextArea 
+         txtPlaceholder='Your Question?'
+         txtRows = '4'
+         txtCols = '30'
+         txtOnChange = {(e) => saveInput(e, props.SetTxtArea)}
+        />
 
+         <Button
+         buttonOnSubmit = {() => saveContactForm(props.name,
+                                                 props.txtArea,
+                                                 props.email,
+                                                 props.SetContact,
+                                                 props.SetFormIsSuccess)}
+         buttonTitle = 'Submit'
+         />
+      </div>
    </Layout>
   )
 }

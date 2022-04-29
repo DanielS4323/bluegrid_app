@@ -11,48 +11,43 @@ function App() {
 
   const [articles, SetArticles] = useState([])
   const [contact, SetContact] = useState({})
-  const [isSuccess, SetIsSuccess] = useState(false)
+  const [formIsSuccess, SetFormIsSuccess] = useState(false)
 
 
   return (
     
     <Router>
-    <Routes>
-
-      <Route
-                  element={
-            <Home
+      <Routes>
+          <Route
+                  element={<Home
                   articles={articles}
                   SetArticles={SetArticles}/>}
                   path='/' exact 
             />
-           
 
-      <Route 
+          <Route
+                  element={<Details
+                  articles={articles}/>}
+                  path='/details/:id/:articleTitle' exact
+            />
+          <Route 
                   element={<About/>} 
                   path='/about' exact />
-      <Route 
-                  element={
-          <Contact 
+          <Route 
+                  element={<Contact 
                   contact={contact}
                   SetContact={SetContact}
-                  isSuccess={isSuccess}
-                  SetIsSuccess={SetIsSuccess}/>}
+                  formIsSuccess={formIsSuccess}
+                  SetFormIsSuccess={SetFormIsSuccess}/>}
                   path='/contact' exact
-          />
-
-      <Route 
-                  element={<NotFound/>} 
-                  path='*'
-          />
-           <Route
-            element={<Details
-                      articles={articles}/>}
-            path='/details/:id/:articleTitle' exact
             />
 
-    </Routes>
-  </Router>
+          <Route 
+                  element={<NotFound/>} 
+                  path='*'
+            />
+      </Routes>
+    </Router>
   );
 }
 

@@ -8,7 +8,6 @@ function EditArticle(props) {
     
     const [title, SetTitle] = useState(props.editArticle.title)
     const [content, SetContent] = useState(props.editArticle.content)
-    
     const id = props.editId
 
     useEffect(() => {
@@ -21,10 +20,6 @@ function EditArticle(props) {
     const cancelEdit = () => {
       props.SetEdit((prev) => !prev)
     }
-    
-
-    
-
 
   return (
    <div className='edit-article'>
@@ -52,8 +47,8 @@ function EditArticle(props) {
     buttonTitle = 'Edit'/>
 
     <Button
-      buttonTitle = 'Cancel'
-      buttonOnSubmit= {() => cancelEdit()}
+    buttonTitle = 'Cancel'
+    buttonOnSubmit= {() => cancelEdit()}
     />
 
 

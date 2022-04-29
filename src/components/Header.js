@@ -11,43 +11,41 @@ function Header() {
    <>
    <nav
       className='navigation'>
-          <Logo/>
-            <ul
-          className='pages'
-          >
-          <li>
-          <NavLink
-            className='links'
-            to='/'
-            style={({ isActive }) => ({
-            textDecoration: isActive ? 'underline' : ''
-           })}
-
-           >Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink 
-            className='links'
-            style={({ isActive }) => ({
-            textDecoration: isActive ? 'underline' : ''
-            })}
-            to='/about'>
-            About Us
-          </NavLink>
-        </li>
-        <li>
-            <NavLink className='links'
-            to='/contact'
-            style={({ isActive }) => ({
-            textDecoration: isActive ? 'underline' : ''
-            })}>
-            Contact
-          </NavLink>
-        </li>
-      </ul>
+      <Logo/>
+          <ul className='pages'>
+            <li>
+                <NavLink
+                  className='links'
+                  to='/'
+                  style={({ isActive }) => ({
+                  textDecoration: isActive ? 'underline' : ''
+                })}
+                  >Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                  className='links'
+                  style={({ isActive }) => ({
+                  textDecoration: isActive ? 'underline' : ''
+                  })}
+                  to='/about'>
+                  About Us
+                </NavLink>
+            </li>
+            <li>
+                <NavLink 
+                  className='links'
+                  to='/contact'
+                  style={({ isActive }) => ({
+                  textDecoration: isActive ? 'underline' : ''
+                  })}>
+                  Contact
+                </NavLink>
+            </li>
+        </ul>
    </nav>
-   </>
+  </>
   )
 }
 

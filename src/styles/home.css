@@ -45,6 +45,10 @@
     color: inherit;
     text-decoration: inherit;
 }
+.title:hover {
+    background-color: #E8D1A2;
+    text-decoration: underline;
+}
 
 .date {
     position: absolute;

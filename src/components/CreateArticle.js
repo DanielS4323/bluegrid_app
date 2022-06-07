@@ -24,10 +24,9 @@ function CreateArticle(props) {
           saveArticle(
             props.title,
             props.content,
-            props.articles,
             props.SetArticles,
-            props.SetTitle,
-            props.SetContent
+            props.SetContent,
+            props.SetTitle
           )
         }
         buttonTitle="Submit"

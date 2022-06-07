@@ -4,6 +4,12 @@ import { NavLink } from "react-router-dom";
 import Logo from "./parts/Logo";
 
 function Header() {
+
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      textDecoration: isActive ? "underline" : ""
+    }
+  }
   return (
     <>
       <nav className="navigation">
@@ -13,9 +19,7 @@ function Header() {
             <NavLink
               className="links"
               to="/"
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "",
-              })}
+              style={navLinkStyles}
             >
               Home
             </NavLink>
@@ -23,9 +27,7 @@ function Header() {
           <li>
             <NavLink
               className="links"
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "",
-              })}
+              style={navLinkStyles}
               to="/about"
             >
               About Us
@@ -35,9 +37,7 @@ function Header() {
             <NavLink
               className="links"
               to="/contact"
-              style={({ isActive }) => ({
-                textDecoration: isActive ? "underline" : "",
-              })}
+              style={navLinkStyles}
             >
               Contact
             </NavLink>

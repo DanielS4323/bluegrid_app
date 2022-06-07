@@ -17,7 +17,6 @@ function Form(props) {
         />
 
         <Input
-          fieldType="email"
           fieldPlaceholder="Enter Email"
           fieldOnChange={(e) => saveInput(e, props.SetEmail)}
         />

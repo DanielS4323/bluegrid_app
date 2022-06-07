@@ -11,28 +11,31 @@ function Contact(props) {
 
   ChangeTitleName("Contact");
 
+  const formToFill = 
+    <Form
+      name={name}
+      email={email}
+      txtArea={txtArea}
+      SetContact={props.SetContact}
+      SetFormIsSuccess={props.SetFormIsSuccess}
+      SetName={SetName}
+      SetEmail={SetEmail}
+      SetTxtArea={SetTxtArea}
+    />
+  
+
+  const formFilled =
+    <FormSuccess
+      name={props.contact.name}
+      email={props.contact.email}
+      txtArea={props.contact.question}
+    />
+  
+
   return (
     <>
-      {!props.formIsSuccess && (
-        <Form
-          name={name}
-          email={email}
-          txtArea={txtArea}
-          SetContact={props.SetContact}
-          SetFormIsSuccess={props.SetFormIsSuccess}
-          SetName={SetName}
-          SetEmail={SetEmail}
-          SetTxtArea={SetTxtArea}
-        />
-      )}
-
-      {props.formIsSuccess && (
-        <FormSuccess
-          name={props.contact.name}
-          email={props.contact.email}
-          txtArea={props.contact.question}
-        />
-      )}
+      {!props.formIsSuccess && formToFill}
+      {props.formIsSuccess && formFilled}
     </>
   );
 }

@@ -16,26 +16,28 @@ function Home(props) {
 
   ChangeTitleName("React Class");
 
+  const noArticlesMessage =
+    props.articles.length === 0 ? (
+      <p className="no-articles">No articles</p>
+    ) : (
+      ""
+    );
+
   return (
     <Layout title="Home">
-      {props.articles.length === 0 && (
-        <p className="no-articles">No articles</p>
-      )}
-
-      <>
-        <div className="article-container">
-          {props.articles.map((article) => (
-            <Article
-              key={article.id}
-              article={article}
-              SetArticles={props.SetArticles}
-              SetEdit={SetEdit}
-              SetEditArticle={SetEditArticle}
-              SetEditId={SetEditId}
-            />
-          ))}
-        </div>
-      </>
+      {noArticlesMessage}
+      <div className="article-container">
+        {props.articles.map((article) => (
+          <Article
+            key={article.id}
+            article={article}
+            SetArticles={props.SetArticles}
+            SetEdit={SetEdit}
+            SetEditArticle={SetEditArticle}
+            SetEditId={SetEditId}
+          />
+        ))}
+      </div>
 
       {!edit && (
         <CreateArticle

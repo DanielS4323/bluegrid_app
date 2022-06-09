@@ -11,15 +11,15 @@ function Form(props) {
         <Input
           fieldType="text"
           fieldPlaceholder="Enter Name"
-          fieldOnChange={props.saveName}
+          onRef={props.saveName}
         />
 
-        <Input fieldPlaceholder="Enter Email" fieldOnChange={props.saveEmail} />
+        <Input fieldPlaceholder="Enter Email" onRef={props.saveEmail} />
         <TextArea
           txtPlaceholder="Your Question?"
           txtRows="4"
           txtCols="30"
-          txtOnChange={props.saveText}
+          onRef={props.saveText}
         />
 
         <Button buttonOnSubmit={props.onSubmit} buttonTitle="Submit" />

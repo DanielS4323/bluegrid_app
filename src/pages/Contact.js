@@ -7,10 +7,9 @@ import { saveContactForm } from "../services/saveContactForm";
 import { saveInput } from "../services/saveInput";
 
 function Contact(props) {
-  const [name, SetName] = useState("");
-  const [email, SetEmail] = useState("");
-  const [txtArea, SetTxtArea] = useState("");
-
+  const nameInputRef = useRef();
+  const emailInputRef = useRef();
+  const textInputRef = useRef();
 
   ChangeTitleName("Contact");
 
@@ -18,16 +17,16 @@ function Contact(props) {
     <Form
       onSubmit={() =>
         saveContactForm(
-          name,
-          txtArea,
-          email,
+          nameInputRef.current.value,
+          textInputRef.current.value,
+          emailInputRef.current.value,
           props.SetContact,
           props.SetFormIsSuccess
         )
       }
-      saveName={(e) => saveInput(e, SetName)}
-      saveEmail={(e) => saveInput(e, SetEmail)}
-      saveText={(e) => saveInput(e, SetTxtArea)}
+      saveName={nameInputRef}
+      saveEmail={emailInputRef}
+      saveText={textInputRef}
     />
   );
 

@@ -16,16 +16,10 @@ function Home(props) {
 
   ChangeTitleName("React Class");
 
-  const noArticlesMessage =
-    props.articles.length === 0 ? (
-      <p className="no-articles">No articles</p>
-    ) : (
-      ""
-    );
+  let pageContent = <p className="no-articles">No articles</p>;
 
-  return (
-    <Layout title="Home">
-      {noArticlesMessage}
+  if (props.articles.length > 0) {
+    pageContent = (
       <div className="article-container">
         {props.articles.map((article) => (
           <Article
@@ -38,6 +32,12 @@ function Home(props) {
           />
         ))}
       </div>
+    );
+  }
+
+  return (
+    <Layout title="Home">
+      {pageContent}
 
       {!edit && (
         <CreateArticle

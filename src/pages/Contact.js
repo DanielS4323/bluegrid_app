@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "../styles/contact.css";
-import Form from "../components/Form";
-import FormSuccess from "../components/FormSuccess";
+import Form from "../components/Form/Form";
+import FormSuccess from "../components/Form/FormSuccess";
 import { ChangeTitleName } from "../services/ChangeTitleName";
 import { saveContactForm } from "../services/saveContactForm";
-import { saveInput } from "../services/saveInput";
+
 
 function Contact(props) {
   const nameInputRef = useRef();

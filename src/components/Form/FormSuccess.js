@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "./layout/Layout";
-import Input from "./parts/Input";
-import TextArea from "./parts/TextArea";
+import Layout from "../layout/Layout";
+import Input from "../parts/Input";
+import TextArea from "../parts/TextArea";
 
 function FormSuccess(props) {
   return (

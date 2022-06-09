@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Article from "../components/Article";
-import CreateArticle from "../components/CreateArticle";
-import EditArticle from "../components/EditArticle";
+import Article from "../components/Article/Article";
+import CreateArticle from "../components/Article/CreateArticle";
+import EditArticle from "../components/Article/EditArticle";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
 import "../styles/home.css";

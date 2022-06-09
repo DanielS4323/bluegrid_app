@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../components/parts/Button";
-import Footer from "../components/parts/Footer";
+import Button from "../components/UI/Button";
+import Footer from "../components/UI/Footer";
 import { ChangeTitleName } from "../services/ChangeTitleName";
 
 function Details(props) {

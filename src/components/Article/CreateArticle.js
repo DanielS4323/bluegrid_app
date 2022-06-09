@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "./parts/Input";
-import Button from "./parts/Button";
-import { saveInput } from "../services/saveInput";
-import { saveArticle } from "../services/saveArticle";
+import Input from "../parts/Input";
+import Button from "../UI/Button";
+import { saveInput } from "../../services/saveInput";
+import { saveArticle } from "../../services/saveArticle";
 
 function CreateArticle(props) {
   return (

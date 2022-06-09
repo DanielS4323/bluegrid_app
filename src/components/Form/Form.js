@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "./layout/Layout";
-import Input from "./parts/Input";
-import TextArea from "./parts/TextArea";
-import Button from "./parts/Button";
+import Layout from "../layout/Layout";
+import Input from "../parts/Input";
+import TextArea from "../parts/TextArea";
+import Button from "../UI/Button";
 
 function Form(props) {
   return (

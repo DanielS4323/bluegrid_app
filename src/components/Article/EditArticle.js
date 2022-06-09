@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Input from "./parts/Input";
-import Button from "./parts/Button";
-import { saveInput } from "../services/saveInput";
-import { editArticle } from "../services/editArticle";
+import Input from "../parts/Input";
+import Button from "../UI/Button";
+import { saveInput } from "../../services/saveInput";
+import { editArticle } from "../../services/editArticle";
 
 function EditArticle(props) {
   const [title, SetTitle] = useState(props.editArticle.title);

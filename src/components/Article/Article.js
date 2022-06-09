@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "./parts/Button";
-import { promptMessage } from "../services/promptMessage";
+import Button from "../UI/Button";
+import { promptMessage } from "../../services/promptMessage";
 
 function Article(props) {
   const handleEdit = () => {

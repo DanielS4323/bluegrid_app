@@ -3,8 +3,6 @@ import Layout from "./layout/Layout";
 import Input from "./parts/Input";
 import TextArea from "./parts/TextArea";
 import Button from "./parts/Button";
-import { saveInput } from "../services/saveInput";
-import { saveContactForm } from "../services/saveContactForm";
 
 function Form(props) {
   return (
@@ -13,32 +11,18 @@ function Form(props) {
         <Input
           fieldType="text"
           fieldPlaceholder="Enter Name"
-          fieldOnChange={(e) => saveInput(e, props.SetName)}
+          fieldOnChange={props.saveName}
         />
 
-        <Input
-          fieldPlaceholder="Enter Email"
-          fieldOnChange={(e) => saveInput(e, props.SetEmail)}
-        />
+        <Input fieldPlaceholder="Enter Email" fieldOnChange={props.saveEmail} />
         <TextArea
           txtPlaceholder="Your Question?"
           txtRows="4"
           txtCols="30"
-          txtOnChange={(e) => saveInput(e, props.SetTxtArea)}
+          txtOnChange={props.saveText}
         />
 
-        <Button
-          buttonOnSubmit={() =>
-            saveContactForm(
-              props.name,
-              props.txtArea,
-              props.email,
-              props.SetContact,
-              props.SetFormIsSuccess
-            )
-          }
-          buttonTitle="Submit"
-        />
+        <Button buttonOnSubmit={props.onSubmit} buttonTitle="Submit" />
       </div>
     </Layout>
   );

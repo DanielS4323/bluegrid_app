@@ -1,3 +1,3 @@
-export const saveInput = (e, SetTitle) => {
-  SetTitle(e.target.value);
+export const saveInput = (e, SetInput) => {
+  SetInput(e.target.value);
 };

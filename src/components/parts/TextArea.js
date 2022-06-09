@@ -8,6 +8,7 @@ function TextArea(props) {
       rows={props.txtRows}
       cols={props.txtCols}
       value={props.txtValue}
+      ref={props.onRef}
       onChange={props.txtOnChange}
     />
   );

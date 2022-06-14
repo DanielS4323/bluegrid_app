@@ -1,41 +1,32 @@
 import React from "react";
-import "../../styles/header.css";
+import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 
 function Header() {
-
   const navLinkStyles = ({ isActive }) => {
     return {
-      textDecoration: isActive ? "underline" : ""
-    }
-  }
+      textDecoration: isActive ? "underline" : "",
+    };
+  };
   return (
     <>
-      <nav className="navigation">
+      <nav className={styles.navigation}>
         <Logo />
-        <ul className="pages">
+        <ul className={styles.pages}>
           <li>
-            <NavLink
-              className="links"
-              to="/"
-              style={navLinkStyles}
-            >
+            <NavLink className={styles.links} to="/" style={navLinkStyles}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink
-              className="links"
-              style={navLinkStyles}
-              to="/about"
-            >
+            <NavLink className={styles.links} style={navLinkStyles} to="/about">
               About Us
             </NavLink>
           </li>
           <li>
             <NavLink
-              className="links"
+              className={styles.links}
               to="/contact"
               style={navLinkStyles}
             >

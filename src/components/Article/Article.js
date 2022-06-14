@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import { promptMessage } from "../../services/promptMessage";
+import styles from "./Article.module.css";
 
 function Article(props) {
   const handleEdit = () => {
@@ -10,23 +11,23 @@ function Article(props) {
     props.SetEdit(true);
   };
   return (
-    <div className="article">
+    <div className={styles.article}>
       <Link
         to={`/details/${props.article.id}/${props.article.title}`}
-        className="title"
+        className={styles.title}
       >
-        <p className="title">{props.article.title}</p>
+        <p className={styles.title}>{props.article.title}</p>
       </Link>
-      <p className="date">{props.article.date}</p>
+      <p className={styles.date}>{props.article.date}</p>
       <Button
-        btnClass="btn-delete"
+        btnClass={styles["btn-delete"]}
         buttonTitle="&#x2715;"
         buttonOnSubmit={() =>
           promptMessage(props.article, props.SetArticles, props.SetEdit)
         }
       />
       <Button
-        btnClass="btn-edit"
+        btnClass={styles["btn-edit"]}
         buttonTitle="&#x270E;"
         buttonOnSubmit={handleEdit}
       />

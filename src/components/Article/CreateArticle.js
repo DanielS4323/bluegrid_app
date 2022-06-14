@@ -1,12 +1,13 @@
 import React from "react";
-import Input from "../parts/Input";
+import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { saveInput } from "../../services/saveInput";
 import { saveArticle } from "../../services/saveArticle";
+import styles from './Create&EditArticle.module.css'
 
 function CreateArticle(props) {
   return (
-    <div className="create-article">
+    <div className={styles["create-article"]}>
       <Input
         fieldType="text"
         fieldValue={props.title}

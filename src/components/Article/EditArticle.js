@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Input from "../parts/Input";
+import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { saveInput } from "../../services/saveInput";
 import { editArticle } from "../../services/editArticle";
+import styles from './Create&EditArticle.module.css'
 
 function EditArticle(props) {
   const [title, SetTitle] = useState(props.editArticle.title);
@@ -19,7 +20,7 @@ function EditArticle(props) {
   };
 
   return (
-    <div className="edit-article">
+    <div className={styles["edit-article"]}>
       <Input
         fieldType="text"
         fieldValue={title}

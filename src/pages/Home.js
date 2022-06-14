@@ -4,7 +4,7 @@ import CreateArticle from "../components/Article/CreateArticle";
 import EditArticle from "../components/Article/EditArticle";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import "../styles/home.css";
+import styles from '../styles/Home.module.css'
 
 function Home(props) {
   const [title, SetTitle] = useState("");
@@ -16,11 +16,11 @@ function Home(props) {
 
   ChangeTitleName("React Class");
 
-  let pageContent = <p className="no-articles">No articles</p>;
+  let pageContent = <p className={styles["no-articles"]}>No articles</p>;
 
   if (props.articles.length > 0) {
     pageContent = (
-      <div className="article-container">
+      <div className={styles["article-container"]}>
         {props.articles.map((article) => (
           <Article
             key={article.id}

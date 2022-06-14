@@ -1,13 +1,14 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
+import styles from '../styles/About.module.css'
 
 function About() {
   ChangeTitleName("About Us");
 
   return (
     <Layout title="About">
-      <p className="about">
+      <p className={styles.about}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and

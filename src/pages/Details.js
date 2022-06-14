@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/UI/Button";
 import Footer from "../components/UI/Footer";
 import { ChangeTitleName } from "../services/ChangeTitleName";
+import styles from '../styles/Details.module.css'
 
 function Details(props) {
   const { id, articleTitle } = useParams();
@@ -17,7 +18,7 @@ function Details(props) {
       <h1>Details</h1>
 
       {detailedArticle && (
-        <div className="article-details">
+        <div className={styles["article-details"]}>
           <p>ID: {detailedArticle.id}</p>
           <p>Title: {detailedArticle.title}</p>
           <p>Content: {detailedArticle.content}</p>

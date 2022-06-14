@@ -1,0 +1,16 @@
+.article-details {
+    text-align: center;
+    padding: 1em;
+    width: 15em;
+    height: 15em;
+    background-color: lightblue;
+    margin: 5em auto;
+    box-shadow: 1px 7px 10px 1px black;
+    border-radius: 10px;
+    font-size: 24px;
+  }
+  
+  .article-details > p {
+    margin: 1em 2em;
+  }
+  

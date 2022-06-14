@@ -1,13 +1,14 @@
 import React from "react";
 import Layout from "../layout/Layout";
-import Input from "../parts/Input";
-import TextArea from "../parts/TextArea";
+import Input from "../UI/Input";
+import TextArea from "../UI/TextArea";
 import Button from "../UI/Button";
+import styles from './Forms.module.css'
 
 function Form(props) {
   return (
     <Layout title="Contact">
-      <div className="form">
+      <div className={styles.form}>
         <Input
           fieldType="text"
           fieldPlaceholder="Enter Name"

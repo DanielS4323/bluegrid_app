@@ -10,7 +10,7 @@ function Header() {
     };
   };
   return (
-    <>
+    <React.Fragment>
       <nav className={styles.navigation}>
         <Logo />
         <ul className={styles.pages}>
@@ -35,7 +35,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-    </>
+    </React.Fragment>
   );
 }
 

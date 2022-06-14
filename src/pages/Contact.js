@@ -37,10 +37,10 @@ function Contact(props) {
   );
 
   return (
-    <>
+    <React.Fragment>
       {!props.formIsSuccess && formToFill}
       {props.formIsSuccess && formFilled}
-    </>
+    </React.Fragment>
   );
 }
 

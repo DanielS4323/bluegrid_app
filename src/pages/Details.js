@@ -14,7 +14,7 @@ function Details(props) {
   ChangeTitleName(`Article Details - ${articleTitle}`);
 
   return (
-    <>
+    <React.Fragment>
       <h1>Details</h1>
 
       {detailedArticle && (
@@ -31,7 +31,7 @@ function Details(props) {
         </div>
       )}
       <Footer />
-    </>
+    </React.Fragment>
   );
 }
 

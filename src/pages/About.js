@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import styles from '../page_styles/About.module.css'
+import styles from './styles/About.module.css'
 
 function About() {
   ChangeTitleName("About Us");

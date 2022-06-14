@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/UI/Button";
 import Footer from "../components/UI/Footer";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import styles from '../page_styles/Details.module.css'
+import styles from './styles/Details.module.css'
 
 function Details(props) {
   const { id, articleTitle } = useParams();

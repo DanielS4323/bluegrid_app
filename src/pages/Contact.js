@@ -1,25 +1,26 @@
 import React, { useRef } from "react";
+import { useContext } from "react";
 import Form from "../components/ContactForm/Form";
 import FormSuccess from "../components/ContactForm/FormSuccess";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import { saveContactForm } from "../services/saveContactForm";
+import ContactContext from "../store/Contact-Context/contact-context";
 
-function Contact(props) {
+function Contact() {
+  const contactCtx = useContext(ContactContext);
   const nameInputRef = useRef();
   const emailInputRef = useRef();
   const textInputRef = useRef();
+  const {name, email, question} = contactCtx.contact
 
   ChangeTitleName("Contact");
 
   const formToFill = (
     <Form
       onSubmit={() =>
-        saveContactForm(
+        contactCtx.saveContactForm(
           nameInputRef.current.value,
           textInputRef.current.value,
-          emailInputRef.current.value,
-          props.SetContact,
-          props.SetFormIsSuccess
+          emailInputRef.current.value
         )
       }
       saveName={nameInputRef}
@@ -30,16 +31,16 @@ function Contact(props) {
 
   const formFilled = (
     <FormSuccess
-      name={props.contact.name}
-      email={props.contact.email}
-      txtArea={props.contact.question}
+      name={name}
+      email={email}
+      txtArea={question}
     />
   );
 
   return (
     <React.Fragment>
-      {!props.formIsSuccess && formToFill}
-      {props.formIsSuccess && formFilled}
+      {!contactCtx.isFormSuccess && formToFill}
+      {contactCtx.isFormSuccess && formFilled}
     </React.Fragment>
   );
 }

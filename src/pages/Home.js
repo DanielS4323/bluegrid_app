@@ -4,7 +4,7 @@ import CreateArticle from "../components/Article/CreateArticle";
 import EditArticle from "../components/Article/EditArticle";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import styles from '../styles/Home.module.css'
+import styles from '../page_styles/Home.module.css'
 
 function Home(props) {
   const [title, SetTitle] = useState("");

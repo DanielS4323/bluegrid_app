@@ -1,35 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Article from "../components/Article/Article";
 import CreateArticle from "../components/Article/CreateArticle";
 import EditArticle from "../components/Article/EditArticle";
 import Layout from "../components/layout/Layout";
 import { ChangeTitleName } from "../services/ChangeTitleName";
-import styles from './styles/Home.module.css'
+import ArticleContext from "../store/Article-Context/article-context";
+import styles from "./styles/Home.module.css";
 
-function Home(props) {
-  const [title, SetTitle] = useState("");
-  const [content, SetContent] = useState("");
-
-  const [editId, SetEditId] = useState(null);
-  const [edit, SetEdit] = useState(false);
-  const [editArticle, SetEditArticle] = useState(null);
+function Home() {
+  const articleCtx = useContext(ArticleContext);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   ChangeTitleName("React Class");
 
   let pageContent = <p className={styles["no-articles"]}>No articles</p>;
 
-  if (props.articles.length > 0) {
+  if (articleCtx?.totalItems > 0) {
     pageContent = (
       <div className={styles["article-container"]}>
-        {props.articles.map((article) => (
-          <Article
-            key={article.id}
-            article={article}
-            SetArticles={props.SetArticles}
-            SetEdit={SetEdit}
-            SetEditArticle={SetEditArticle}
-            SetEditId={SetEditId}
-          />
+        {articleCtx.items.map((article) => (
+          <Article key={article.id} article={article} />
         ))}
       </div>
     );
@@ -39,28 +30,16 @@ function Home(props) {
     <Layout title="Home">
       {pageContent}
 
-      {!edit && (
+      {!articleCtx?.isForEdit && (
         <CreateArticle
           title={title}
           content={content}
-          SetTitle={SetTitle}
-          SetContent={SetContent}
-          articles={props.articles}
-          SetArticles={props.SetArticles}
+          setTitle={setTitle}
+          setContent={setContent}
         />
       )}
-      {edit && (
-        <EditArticle
-          articles={props.articles}
-          SetArticles={props.SetArticles}
-          editArticle={editArticle}
-          title={title}
-          content={content}
-          SetTitle={SetTitle}
-          SetContent={SetContent}
-          editId={editId}
-          SetEdit={SetEdit}
-        />
+      {articleCtx.isForEdit && (
+        <EditArticle setTitle={setTitle} setContent={setContent} />
       )}
     </Layout>
   );

@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { saveInput } from "../../services/saveInput";
-import { editArticle } from "../../services/editArticle";
-import styles from './Create&EditArticle.module.css'
+import styles from "./Create&EditArticle.module.css";
+import ArticleContext from "../../store/Article-Context/article-context";
 
-function EditArticle(props) {
-  const [title, SetTitle] = useState(props.editArticle.title);
-  const [content, SetContent] = useState(props.editArticle.content);
-  const id = props.editId;
+function EditArticle() {
+  const articleCtx = useContext(ArticleContext);
+  const {articleToEdit} =  articleCtx
+  const [title, SetTitle] = useState(articleToEdit.title);
+  const [content, SetContent] = useState(articleToEdit.content);
+  const id = articleCtx.idToEdit;
 
-  useEffect(() => {
-    SetTitle(props.editArticle.title);
-    SetContent(props.editArticle.content);
-  }, [props.editArticle]);
+  const cancelEditHandler = () => {
+    articleCtx.cancelEditArticle();
+  };
 
-  const cancelEdit = () => {
-    props.SetEdit((prev) => !prev);
+  const editArticle = () => {
+    articleCtx.editArticle(title, content, id);
   };
 
   return (
@@ -34,21 +35,9 @@ function EditArticle(props) {
         fieldOnChange={(e) => saveInput(e, SetContent)}
       />
 
-      <Button
-        buttonOnSubmit={() =>
-          editArticle(
-            title,
-            content,
-            id,
-            props.SetArticles,
-            props.articles,
-            props.SetEdit
-          )
-        }
-        buttonTitle="Edit"
-      />
+      <Button buttonOnSubmit={editArticle} buttonTitle="Edit" />
 
-      <Button buttonTitle="Cancel" buttonOnSubmit={() => cancelEdit()} />
+      <Button buttonTitle="Cancel" buttonOnSubmit={cancelEditHandler} />
     </div>
   );
 }

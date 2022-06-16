@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
-import { promptMessage } from "../../services/promptMessage";
 import styles from "./Article.module.css";
+import ArticleContext from "../../store/Article-Context/article-context";
+
 
 function Article(props) {
+    const articleCtx = useContext(ArticleContext)
+  
+
   const handleEdit = () => {
-    props.SetEditArticle(props.article);
-    props.SetEditId(props.article.id);
-    props.SetEdit(true);
+  articleCtx.toggleEditArticle(props.article)
   };
+
+  const handleDelete = () => {
+    articleCtx.deleteArticle(props.article.id)
+  }
   return (
     <div className={styles.article}>
       <Link
@@ -22,9 +28,7 @@ function Article(props) {
       <Button
         btnClass={styles["btn-delete"]}
         buttonTitle="&#x2715;"
-        buttonOnSubmit={() =>
-          promptMessage(props.article, props.SetArticles, props.SetEdit)
-        }
+        buttonOnSubmit={handleDelete}
       />
       <Button
         btnClass={styles["btn-edit"]}
